@@ -11,31 +11,45 @@
         "m_CodePreviewVisible": true,
         "m_OpenUXMLFiles": [
             {
-                "m_OpenUSSFiles": [],
+                "m_OpenUSSFiles": [
+                    {
+                        "m_StyleSheet": {
+                            "fileID": 7433441132597879392,
+                            "guid": "e25926850e96e445296139728f481d33",
+                            "type": 3
+                        },
+                        "m_BackupStyleSheet": {
+                            "instanceID": 0
+                        },
+                        "m_OldPath": "Assets/UI/StartScreen/Scripts/BaseUI.uss"
+                    }
+                ],
                 "m_VisualTreeAssetBackup": {
                     "instanceID": 0
                 },
-                "m_OpenendVisualTreeAssetOldPath": "Assets/UI/StartScreen/StartScreenBackground.uxml",
+                "m_OpenendVisualTreeAssetOldPath": "Assets/UI/StartScreen/StartButton.uxml",
                 "m_VisualTreeAsset": {
                     "fileID": 9197481963319205126,
-                    "guid": "799eb49d40606d646b6f6bfc1a413362",
+                    "guid": "609849bbfdbb146ae823b6fe63cf8cb4",
                     "type": 3
                 },
                 "m_ActiveStyleSheet": {
-                    "instanceID": 0
+                    "fileID": 7433441132597879392,
+                    "guid": "e25926850e96e445296139728f481d33",
+                    "type": 3
                 },
                 "m_Settings": {
-                    "UxmlGuid": "799eb49d40606d646b6f6bfc1a413362",
-                    "UxmlPath": "Assets/UI/StartScreen/StartScreenBackground.uxml",
+                    "UxmlGuid": "609849bbfdbb146ae823b6fe63cf8cb4",
+                    "UxmlPath": "Assets/UI/ButtonUI.uxml",
                     "CanvasX": 0,
                     "CanvasY": 0,
-                    "CanvasWidth": 350,
-                    "CanvasHeight": 450,
+                    "CanvasWidth": 1133,
+                    "CanvasHeight": 898,
                     "MatchGameView": false,
                     "ZoomScale": 1.0,
                     "PanOffset": {
-                        "x": 20.0,
-                        "y": 20.0
+                        "x": 23.0,
+                        "y": 26.0
                     },
                     "ColorModeBackgroundOpacity": 1.0,
                     "ImageModeCanvasBackgroundOpacity": 1.0,
