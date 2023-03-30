@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/startUI.uss?fileID=7433441132597879392&amp;guid=3fb4aad73a8b5384a993c34c5b4c64c5&amp;type=3#startUI" />
+    <ui:VisualElement style="height: 2540px; width: 270px; margin-left: 0; margin-top: 0; flex-grow: 1; justify-content: center; align-items: center; background-color: rgb(87, 99, 149);">
+        <ui:Label text="Welcome to our game!" display-tooltip-when-elided="true" style="font-size: 22px; padding-left: 1px; -unity-font: url(&apos;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&amp;guid=38be92d1ef69f1640b30dab171c5fc3d&amp;type=3#NotInter-Regular&apos;); height: 113px; width: 522px; margin-left: 268px; align-items: center; justify-content: center;" />
+        <ui:Button text="Start" display-tooltip-when-elided="true" style="height: 55px; width: 166px; margin-top: 40px; margin-left: -25px; font-size: 25px; justify-content: center; align-items: center; transition-property: all; transition-duration: 0s; transition-timing-function: ease; transition-delay: 0s; -unity-slice-left: 0; border-top-left-radius: 21px; border-bottom-left-radius: 21px; border-top-right-radius: 21px; border-bottom-right-radius: 21px;" />
+    </ui:VisualElement>
+</ui:UXML>
