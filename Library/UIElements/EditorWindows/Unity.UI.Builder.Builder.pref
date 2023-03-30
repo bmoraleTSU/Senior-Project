@@ -84,7 +84,7 @@ MonoBehaviour:
   - '{"m_FixedPaneDimension":433.0}'
   - '{"m_FixedPaneDimension":20.0}'
   - '{"m_FixedPaneDimension":200.0}'
-  - '{"m_CachedScrollPositionCount":5,"m_OldestScrollPositionIndex":2,"m_CachedContentHeights":[2874.0,2859.0,2764.0,2579.0,2689.0],"m_CachedScrollPositions":[{"scrollPosition":1026.0,"maxScrollValue":1875.0},{"scrollPosition":810.0,"maxScrollValue":1860.0},{"scrollPosition":918.0,"maxScrollValue":1765.0},{"scrollPosition":54.0,"maxScrollValue":1580.0},{"scrollPosition":70.0,"maxScrollValue":1690.0}]}'
+  - '{"m_CachedScrollPositionCount":5,"m_OldestScrollPositionIndex":2,"m_CachedContentHeights":[2874.0,2859.0,2764.0,2579.0,2689.0],"m_CachedScrollPositions":[{"scrollPosition":1026.0,"maxScrollValue":1875.0},{"scrollPosition":810.0,"maxScrollValue":1860.0},{"scrollPosition":918.0,"maxScrollValue":1765.0},{"scrollPosition":54.0,"maxScrollValue":1580.0},{"scrollPosition":1188.0,"maxScrollValue":1690.0}]}'
   - '{"m_Value":true}'
   - '{"m_Value":true}'
   - '{"m_Value":true}'

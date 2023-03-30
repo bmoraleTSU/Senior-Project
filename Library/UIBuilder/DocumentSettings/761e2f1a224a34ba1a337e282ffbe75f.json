@@ -3,8 +3,8 @@
     "UxmlPath": "Assets/UI/UIBase.uxml",
     "CanvasX": 0,
     "CanvasY": 0,
-    "CanvasWidth": 640,
-    "CanvasHeight": 1136,
+    "CanvasWidth": 1125,
+    "CanvasHeight": 2436,
     "MatchGameView": true,
     "ZoomScale": 0.25,
     "PanOffset": {
