@@ -4,9 +4,11 @@
         "m_EditorHideFlags": 0,
         "m_Name": "BuilderDocument",
         "m_EditorClassIdentifier": "UnityEditor.UIBuilderModule:Unity.UI.Builder:BuilderDocument",
-        "m_CurrentCanvasTheme": 0,
+        "m_CurrentCanvasTheme": 4,
         "m_CurrentCanvasThemeStyleSheetReference": {
-            "instanceID": 0
+            "fileID": -4733365628477956816,
+            "guid": "38be92d1ef69f1640b30dab171c5fc3d",
+            "type": 3
         },
         "m_CodePreviewVisible": true,
         "m_OpenUXMLFiles": [
@@ -15,13 +17,13 @@
                     {
                         "m_StyleSheet": {
                             "fileID": 7433441132597879392,
-                            "guid": "e25926850e96e445296139728f481d33",
+                            "guid": "98ecf60fb27461b4699904fbe4112004",
                             "type": 3
                         },
                         "m_BackupStyleSheet": {
                             "instanceID": 0
                         },
-                        "m_OldPath": "Assets/UI/StartScreen/Scripts/BaseUI.uss"
+                        "m_OldPath": "Assets/UI/DifficultyChoiceScreen/Scripts/DifficultyScreenStyle.uss"
                     }
                 ],
                 "m_VisualTreeAssetBackup": {
@@ -35,7 +37,7 @@
                 },
                 "m_ActiveStyleSheet": {
                     "fileID": 7433441132597879392,
-                    "guid": "e25926850e96e445296139728f481d33",
+                    "guid": "98ecf60fb27461b4699904fbe4112004",
                     "type": 3
                 },
                 "m_Settings": {
@@ -48,8 +50,8 @@
                     "MatchGameView": false,
                     "ZoomScale": 1.0,
                     "PanOffset": {
-                        "x": 84.0,
-                        "y": 58.0
+                        "x": 310.5,
+                        "y": 174.5
                     },
                     "ColorModeBackgroundOpacity": 1.0,
                     "ImageModeCanvasBackgroundOpacity": 1.0,

@@ -1,8 +1,8 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/UI/StartScreen/Scripts/BaseUI.uss?fileID=7433441132597879392&amp;guid=e25926850e96e445296139728f481d33&amp;type=3#BaseUI" />
+    <Style src="project://database/Assets/UI/DifficultyChoiceScreen/Scripts/DifficultyScreenStyle.uss?fileID=7433441132597879392&amp;guid=98ecf60fb27461b4699904fbe4112004&amp;type=3#DifficultyScreenStyle" />
     <ui:VisualElement style="flex-grow: 1; justify-content: center; align-items: center;">
-        <ui:Button text="Slow Stalk" display-tooltip-when-elided="true" name="EasyChoice" class="difficulty-button" style="font-size: 20%; -unity-font-style: bold;" />
-        <ui:Button text="Challenging Pursuit" display-tooltip-when-elided="true" name="MediumChoice" class="difficulty-button" style="font-size: 14%; -unity-font-style: bold;" />
-        <ui:Button text="High-Speed Chase" display-tooltip-when-elided="true" name="HardChoice" class="difficulty-button" style="-unity-font-style: bold; font-size: 15px;" />
+        <ui:Button text="Slow Stalk" display-tooltip-when-elided="true" name="EasyChoice" class="difficulty-button" />
+        <ui:Button text="Challenging Pursuit" display-tooltip-when-elided="true" name="MediumChoice" class="difficulty-button" />
+        <ui:Button text="High-Speed Chase" display-tooltip-when-elided="true" name="HardChoice" class="difficulty-button" />
     </ui:VisualElement>
 </ui:UXML>
