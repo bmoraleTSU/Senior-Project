@@ -27,10 +27,10 @@
                 "m_VisualTreeAssetBackup": {
                     "instanceID": 0
                 },
-                "m_OpenendVisualTreeAssetOldPath": "Assets/UI/StartScreen/StartButton.uxml",
+                "m_OpenendVisualTreeAssetOldPath": "Assets/UI/DifficultyChoiceScreen/DifficultyChoicesScreen.uxml",
                 "m_VisualTreeAsset": {
                     "fileID": 9197481963319205126,
-                    "guid": "609849bbfdbb146ae823b6fe63cf8cb4",
+                    "guid": "5547f0fc819ac49a98fd3a342bf62f31",
                     "type": 3
                 },
                 "m_ActiveStyleSheet": {
@@ -39,17 +39,17 @@
                     "type": 3
                 },
                 "m_Settings": {
-                    "UxmlGuid": "609849bbfdbb146ae823b6fe63cf8cb4",
-                    "UxmlPath": "Assets/UI/ButtonUI.uxml",
+                    "UxmlGuid": "5547f0fc819ac49a98fd3a342bf62f31",
+                    "UxmlPath": "Assets/UI/DifficultyChoiceScreen/DifficultyChoicesScreen.uxml",
                     "CanvasX": 0,
                     "CanvasY": 0,
-                    "CanvasWidth": 1133,
-                    "CanvasHeight": 898,
+                    "CanvasWidth": 254,
+                    "CanvasHeight": 450,
                     "MatchGameView": false,
                     "ZoomScale": 1.0,
                     "PanOffset": {
-                        "x": 23.0,
-                        "y": 26.0
+                        "x": 84.0,
+                        "y": 58.0
                     },
                     "ColorModeBackgroundOpacity": 1.0,
                     "ImageModeCanvasBackgroundOpacity": 1.0,

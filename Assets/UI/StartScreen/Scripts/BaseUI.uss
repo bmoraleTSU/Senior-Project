@@ -1,9 +1,31 @@
-.header {
+.difficulty-button {
+    justify-content: center;
     align-items: center;
-    justify-content: flex-start;
-    -unity-font: url('project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=38be92d1ef69f1640b30dab171c5fc3d&type=3#NotInter-Regular');
-    font-size: 27px;
-}
-
-.uibutton {
+    padding-bottom: 5%;
+    padding-top: 5%;
+    width: 45%;
+    height: 15%;
+    min-width: 150px;
+    min-height: 50px;
+    margin-top: 10%;
+    margin-bottom: 12%;
+    -unity-background-image-tint-color: rgb(56, 56, 56);
+    background-color: rgb(98, 123, 224);
+    border-left-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-top-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    font-size: 90%;
+    -unity-font-style: normal;
+    -unity-font-definition: url('project://database/Assets/UI/Fonts/Bluetea%20SDF.asset?fileID=11400000&guid=df73c54247e0f1e4ab7b29948ca369c2&type=2#Bluetea SDF');
+    -unity-font: url('project://database/Assets/UI/Fonts/Bluetea.ttf?fileID=12800000&guid=21c994a992614a241a39f3fe8ee4f1d5&type=3#Bluetea');
+    flex-grow: 0;
 }

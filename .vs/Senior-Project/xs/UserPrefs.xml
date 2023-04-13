@@ -1,8 +1,8 @@
 ﻿<Properties StartupConfiguration="{3158CAE7-3C2F-B209-6B95-C72095AB7E49}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/UI/BaseUI.uss">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/UI/StartScreen/Scripts/BaseUI.uss">
     <Files>
-      <File FileName="Assets/ButtonClicker.cs" />
-      <File FileName="Assets/UI/BaseUI.uss" Line="1" Column="1" />
+      <File FileName="Assets/UI/StartScreen/Scripts/BaseUI.uss" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -10,7 +10,11 @@
           <Node name="Senior-Project" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="UI" expanded="True">
-                <Node name="BaseUI.uss" selected="True" />
+                <Node name="StartScreen" expanded="True">
+                  <Node name="Scripts" expanded="True">
+                    <Node name="BaseUI.uss" selected="True" />
+                  </Node>
+                </Node>
               </Node>
             </Node>
           </Node>
@@ -18,11 +22,10 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="137cf8ff-2512-4c7e-a691-291796c7536d" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="f804c8f8-b834-464a-a88e-f0f0fbdb74d5" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
