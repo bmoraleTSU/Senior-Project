@@ -356,8 +356,10 @@
 -r:"Library/Bee/artifacts/900b0aE.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/900b0aE.dag/UnityEngine.UI.ref.dll"
+"Assets/RobotSphere/Assets/Scripts/RobotFreeAnim.cs"
 "Assets/TutorialInfo/Scripts/Readme.cs"
-"Assets/UI/StartScreen/Scripts/StartButtonClicker.cs"
+"Assets/UI/Scripts/DifficultyScreenButtonClicker.cs"
+"Assets/UI/Scripts/StartButtonClicker.cs"
 -langversion:9.0
 
 /deterministic
