@@ -1,9 +1,0 @@
-.header {
-    align-items: center;
-    justify-content: flex-start;
-    -unity-font: url('project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=38be92d1ef69f1640b30dab171c5fc3d&type=3#NotInter-Regular');
-    font-size: 27px;
-}
-
-.uibutton {
-}

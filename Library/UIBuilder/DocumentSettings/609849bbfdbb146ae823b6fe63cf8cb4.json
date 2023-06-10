@@ -3,13 +3,13 @@
     "UxmlPath": "Assets/UI/ButtonUI.uxml",
     "CanvasX": 0,
     "CanvasY": 0,
-    "CanvasWidth": 1170,
-    "CanvasHeight": 2532,
+    "CanvasWidth": 1133,
+    "CanvasHeight": 898,
     "MatchGameView": false,
     "ZoomScale": 1.0,
     "PanOffset": {
-        "x": 20.0,
-        "y": 20.0
+        "x": 23.0,
+        "y": 26.0
     },
     "ColorModeBackgroundOpacity": 1.0,
     "ImageModeCanvasBackgroundOpacity": 1.0,
