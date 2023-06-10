@@ -29,6 +29,7 @@
                 "m_VisualTreeAssetBackup": {
                     "instanceID": 0
                 },
+<<<<<<< HEAD
                 "m_OpenendVisualTreeAssetOldPath": "Assets/UI/DifficultyChoiceScreen/DifficultyChoicesScreen.uxml",
                 "m_VisualTreeAsset": {
                     "fileID": 9197481963319205126,
@@ -47,6 +48,24 @@
                     "CanvasY": 0,
                     "CanvasWidth": 254,
                     "CanvasHeight": 450,
+=======
+                "m_OpenendVisualTreeAssetOldPath": "Assets/UI/ButtonUI.uxml",
+                "m_VisualTreeAsset": {
+                    "fileID": 9197481963319205126,
+                    "guid": "609849bbfdbb146ae823b6fe63cf8cb4",
+                    "type": 3
+                },
+                "m_ActiveStyleSheet": {
+                    "instanceID": 0
+                },
+                "m_Settings": {
+                    "UxmlGuid": "609849bbfdbb146ae823b6fe63cf8cb4",
+                    "UxmlPath": "Assets/UI/ButtonUI.uxml",
+                    "CanvasX": 0,
+                    "CanvasY": 0,
+                    "CanvasWidth": 1170,
+                    "CanvasHeight": 2532,
+>>>>>>> main
                     "MatchGameView": false,
                     "ZoomScale": 1.0,
                     "PanOffset": {

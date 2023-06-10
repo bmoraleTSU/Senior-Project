@@ -71,7 +71,7 @@ MonoBehaviour:
   - '{"m_FixedPaneDimension":200.0}'
   - '{"m_ExpandedItemIds":[1,2]}'
   - '{"m_ShowAlternatingRowBackgrounds":0,"m_ScrollOffset":{"x":0.0,"y":0.0}}'
-  - '{"m_Value":0.0,"m_LowValue":0.0,"m_HighValue":0.0}'
+  - '{"m_Value":0.0,"m_LowValue":0.0,"m_HighValue":1.0}'
   - '{"m_Value":0.0,"m_LowValue":0.0,"m_HighValue":0.0}'
   - '{"m_ElementInfoVisibilityState":0}'
   - '{"m_ExpandedItemIds":[1,-671300248]}'
@@ -117,4 +117,7 @@ MonoBehaviour:
   - '{}'
   - '{"m_ElementInfoVisibilityState":0}'
   - '{}'
+<<<<<<< HEAD
   - '{}'
+=======
+>>>>>>> main
