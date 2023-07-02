@@ -5,6 +5,7 @@ using UnityEngine.UIElements;
 
 public class StartButtonClicker : MonoBehaviour
 {
+    Canvas parentCanvas;
     UIDocument buttonDocument;
     Button uiButton;
     // Setup variables for changing sort order of the screens on button press
@@ -14,24 +15,29 @@ public class StartButtonClicker : MonoBehaviour
 
     void OnEnable()
     {
-        // Find the canvas component that is the parent to all of the screen
-        // game objects and populate "screenUIDocuments" with its children
-        Canvas parentCanvas = FindAnyObjectByType<Canvas>();
+        /*
+        Find the canvas component that is the parent to all of the screen
+        game objects and populate "screenUIDocuments" with its children
+        */
+        parentCanvas = FindAnyObjectByType<Canvas>();
         if(parentCanvas == null)
         {
             Debug.LogError("Unable to find the parent canvas object!");
         }
         else
         {
+            // Populate with all of the children UIDocument objects in parentCanvas
             screenUIDocuments = parentCanvas.GetComponentsInChildren<UIDocument>();
-            // Find order of UIDocuments
+            // Find the order of the UIDocuments
             for (int i = 0; i < screenUIDocuments.Length; i++)
             {
                 Debug.Log(screenUIDocuments[i]);
             }
         }
-        // Setup the initial sort orders so that the start screen is on top on
-        // startup
+        /*
+        Setup the current sort orders to be the initial sort orders 
+        so that the start screen is always on top on startup
+        */
         currentSortOrders = initialSortOrders;
 
         buttonDocument = GetComponent<UIDocument>();
@@ -40,13 +46,14 @@ public class StartButtonClicker : MonoBehaviour
             Debug.LogError("No button reference found!");
         }
 
+        // Find the reference to the "START" button
         uiButton = buttonDocument.rootVisualElement.Q("StartButton") as Button;
 
         if(uiButton != null)
         {
             Debug.Log("Button found successfully!"); 
         }
-
+        // Register a callback to call OnButtonClick() when the button is pressed
         uiButton.RegisterCallback<ClickEvent>(OnButtonClick);
         // Set all the sort orders of the screens
         for(int i = 0; i < screenUIDocuments.Length; i++)
@@ -66,7 +73,7 @@ public class StartButtonClicker : MonoBehaviour
             // Flip the ordering of all screens (background is 0 so it will not
             // be affected by this)
             currentSortOrders[i] *= -1;
-            // Set the orderings to each gamgeobject
+            // Set the orderings to each gameobject
             screenUIDocuments[i].GetComponent<UIDocument>().sortingOrder = currentSortOrders[i];
         }
     }

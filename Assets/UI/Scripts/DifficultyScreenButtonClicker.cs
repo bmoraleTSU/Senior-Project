@@ -6,16 +6,16 @@ using Unity.VisualScripting;
 
 public class DifficultyScreenButtonClicker : MonoBehaviour
 {
+    // Setup variables for changing sort order of the screens on button press
+    Canvas parentCanvas;
     UIDocument difficultyScreenUIDocument;
     Button easyUIButton, mediumUIButton, hardUIButton;
-    Canvas parentCanvas;
-    // Setup variables for changing sort order of the screens on button press
-
+    
     void OnEnable()
     {
         // Find the canvas component that is the parent to all of the screen
         // game objects and populate "screenUIDocuments" with its children
-        Canvas parentCanvas = FindAnyObjectByType<Canvas>();
+        parentCanvas = FindAnyObjectByType<Canvas>();
         if (parentCanvas == null)
         {
             Debug.LogError("Unable to find the parent canvas object!");
@@ -52,9 +52,6 @@ public class DifficultyScreenButtonClicker : MonoBehaviour
             Debug.Log("Hard Button found successfully!");
         }
 
-        //easyUIButton.RegisterCallback<ClickEvent>(OnEasyButtonClick);
-        //mediumUIButton.RegisterCallback<ClickEvent>(OnMediumButtonClick);
-        //hardUIButton.RegisterCallback<ClickEvent>(OnHardButtonClick);
         easyUIButton.RegisterCallback<ClickEvent>(evnt => OnEasyButtonClick(evnt, parentCanvas));
         mediumUIButton.RegisterCallback<ClickEvent>(evnt => OnMediumButtonClick(evnt, parentCanvas));
         hardUIButton.RegisterCallback<ClickEvent>(evnt => OnHardButtonClick(evnt, parentCanvas));
