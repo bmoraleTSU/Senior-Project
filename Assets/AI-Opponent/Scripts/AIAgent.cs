@@ -24,7 +24,7 @@ public class AIAgent : Agent {
         {
             this.rBody.angularVelocity = Vector3.zero;
             this.rBody.velocity = Vector3.zero;
-            this.transform.localPosition = new Vector3(0, 0.5f, 0);
+            this.transform.localPosition = new Vector3(-24.23f, 6.236f, 0.05f);
         }
 
         // Move the target to a new spot
