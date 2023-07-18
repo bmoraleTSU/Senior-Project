@@ -450,7 +450,7 @@ GameObject:
   - component: {fileID: 826378355}
   - component: {fileID: 826378354}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: UI-Screens
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

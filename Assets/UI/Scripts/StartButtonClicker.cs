@@ -5,6 +5,7 @@ using UnityEngine.UIElements;
 
 public class StartButtonClicker : MonoBehaviour
 {
+    GameObject uiObject;
     Canvas parentCanvas;
     UIDocument buttonDocument;
     Button uiButton;
@@ -19,13 +20,15 @@ public class StartButtonClicker : MonoBehaviour
         Find the canvas component that is the parent to all of the screen
         game objects and populate "screenUIDocuments" with its children
         */
-        parentCanvas = FindAnyObjectByType<Canvas>();
-        if(parentCanvas == null)
+        uiObject = GameObject.Find("UI-Screens");
+        if(uiObject == null)
         {
             Debug.LogError("Unable to find the parent canvas object!");
         }
         else
         {
+            // Find parent canvas from game object
+            parentCanvas = uiObject.GetComponent<Canvas>();
             // Populate with all of the children UIDocument objects in parentCanvas
             screenUIDocuments = parentCanvas.GetComponentsInChildren<UIDocument>();
             // Find the order of the UIDocuments

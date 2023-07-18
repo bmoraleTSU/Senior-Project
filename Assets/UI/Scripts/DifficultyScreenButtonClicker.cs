@@ -7,6 +7,7 @@ using Unity.VisualScripting;
 public class DifficultyScreenButtonClicker : MonoBehaviour
 {
     // Setup variables for changing sort order of the screens on button press
+    GameObject uiObject;
     Canvas parentCanvas;
     UIDocument difficultyScreenUIDocument;
     Button easyUIButton, mediumUIButton, hardUIButton;
@@ -15,14 +16,15 @@ public class DifficultyScreenButtonClicker : MonoBehaviour
     {
         // Find the canvas component that is the parent to all of the screen
         // game objects and populate "screenUIDocuments" with its children
-        parentCanvas = FindAnyObjectByType<Canvas>();
-        if (parentCanvas == null)
+        uiObject = GameObject.Find("UI-Screens");
+        if (uiObject == null)
         {
             Debug.LogError("Unable to find the parent canvas object!");
         }
         else
         {
             Debug.Log("Found parent canvas!");
+            parentCanvas = uiObject.GetComponent<Canvas>();
             parentCanvas.enabled = true;
         }
 
