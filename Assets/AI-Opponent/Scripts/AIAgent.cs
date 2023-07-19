@@ -8,11 +8,58 @@ using Unity.MLAgents.Actuators;
 public class AIAgent : Agent {
     // Init to eventually hold reference to 3D object's ri
     Rigidbody rBody;
+    // Init array of GameObjects to hold platforms
+    GameObject[] platforms;
+    Dictionary<string, bool> platformsTouched = new Dictionary<string, bool> {};
+    // Init colliding bool
+    bool isCurrentlyColliding = false;
     // Start is called before the first frame update
     void Start()
     {
         // Get reference to 3D object rigid body
         rBody = GetComponent<Rigidbody>();
+        // Get GameObjects that are platforms
+        platforms = GameObject.FindGameObjectsWithTag("platform");
+        Debug.Log("The first platform found is " + platforms[0].name);
+        // Get all platform game objects
+        foreach(GameObject platform in platforms) {
+            Debug.Log("Platform found: " + platform.name);
+            // Add platform entry into traversal tracking dictionary
+            platformsTouched.Add(platform.name, false);
+        }
+
+    }
+
+    // Make collision checker function
+    private bool colliderChecker(Collision collision)
+    {
+        if (collision.gameObject.tag == "platform" && !platformsTouched[collision.gameObject.name])
+        {
+            //Debug.Log("Key being used: " + collision.gameObject.name);
+            platformsTouched[collision.gameObject.name] = true;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    // Turn collision bool on if colliding
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Collision detected!");
+        if (colliderChecker(collision))
+        {
+            Debug.Log("Collided with " + collision.gameObject.name);
+            isCurrentlyColliding = true;
+        }
+    }
+
+    // Turn collision bool off when not colliding
+    private void OnCollisionExit(Collision collision)
+    {
+        isCurrentlyColliding = false;
     }
 
     public Transform Target;
@@ -24,20 +71,30 @@ public class AIAgent : Agent {
         {
             this.rBody.angularVelocity = Vector3.zero;
             this.rBody.velocity = Vector3.zero;
-            this.transform.localPosition = new Vector3(-24.23f, 6.236f, 0.05f);
+            // Reset ball's position to top most platform
+            this.transform.localPosition = new Vector3(-63.06f, 12.336f, 0.05f);
         }
 
         // Move the target to a new spot
-        Target.localPosition = new Vector3(Random.value * 8 - 4,
+        /*Target.localPosition = new Vector3(Random.value * 8 - 4,
                                            0.5f,
-                                           Random.value * 8 - 4);
+                                           Random.value * 8 - 4);*/
+        // Reset the platformsTouched dictionary to indicate that no platform has been traversed
+        foreach (GameObject platform in platforms)
+        {
+            platformsTouched[platform.name] = false;
+        }
     }
 
     // Extend observation function
     public override void CollectObservations(VectorSensor sensor)
     {
-        // Target and Agent positions
-        sensor.AddObservation(Target.localPosition);
+        // Platform and Agent positions
+        foreach(GameObject platform in platforms)
+        {
+            sensor.AddObservation(platform.transform.localPosition);
+        }
+        // sensor.AddObservation(Target.localPosition);
         sensor.AddObservation(this.transform.localPosition);
 
         // Agent velocity
@@ -56,19 +113,32 @@ public class AIAgent : Agent {
         rBody.AddForce(controlSignal * forceMultiplier);
 
         // Rewards
-        float distanceToTarget = Vector3.Distance(this.transform.localPosition, Target.localPosition);
+        // Get distance to last platform
+        float distanceToTarget = Vector3.Distance(this.transform.localPosition, platforms[0].transform.localPosition);
 
-        // Reached target
+        // Close to bottom platform
         if (distanceToTarget < 1.42f)
         {
             SetReward(1.0f);
             EndEpisode();
         }
-
         // Fell off platform
         else if (this.transform.localPosition.y < 0)
         {
+            // Adding punishment so we don't punish to heavily
+            // on falling per step
+            AddReward(-0.4f); // Consider removing this penalty to avoid fear of jumping
             EndEpisode();
+        }
+
+        // Punishment for staying on the same platform for too long
+        if (isCurrentlyColliding && this.rBody.velocity != Vector3.zero)
+        {
+            AddReward(0.4f); // Small reward for staying on a platform and moving
+        }
+        else
+        {
+            AddReward(-0.1f); // Small punishment for staying still or not on a platform
         }
     }
 
