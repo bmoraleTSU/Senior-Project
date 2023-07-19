@@ -11,8 +11,9 @@ public class AIAgent : Agent {
     // Init array of GameObjects to hold platforms
     GameObject[] platforms;
     Dictionary<string, bool> platformsTouched = new Dictionary<string, bool> {};
-    // Init colliding bool
+    // Init colliding bools
     bool isCurrentlyColliding = false;
+    bool lastPlatformTouched = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +54,11 @@ public class AIAgent : Agent {
         {
             Debug.Log("Collided with " + collision.gameObject.name);
             isCurrentlyColliding = true;
+            // Check if last platform
+            if (collision.gameObject.name == platforms[0].name)
+            {
+                lastPlatformTouched = true;
+            }
         }
     }
 
@@ -72,7 +78,7 @@ public class AIAgent : Agent {
             this.rBody.angularVelocity = Vector3.zero;
             this.rBody.velocity = Vector3.zero;
             // Reset ball's position to top most platform
-            this.transform.localPosition = new Vector3(-63.06f, 12.336f, 0.05f);
+            this.transform.localPosition = new Vector3(-51.48f, 12.327f, 0.16f);
         }
 
         // Move the target to a new spot
@@ -114,10 +120,10 @@ public class AIAgent : Agent {
 
         // Rewards
         // Get distance to last platform
-        float distanceToTarget = Vector3.Distance(this.transform.localPosition, platforms[0].transform.localPosition);
+        //float distanceToTarget = Vector3.Distance(this.transform.localPosition, platforms[0].transform.localPosition);
 
         // Close to bottom platform
-        if (distanceToTarget < 1.42f)
+        if (lastPlatformTouched)
         {
             SetReward(1.0f);
             EndEpisode();
