@@ -63,7 +63,7 @@ engine_settings:
   no_graphics: false
 environment_parameters: null
 checkpoint_settings:
-  run_id: AI-Opponent-Platforms
+  run_id: AIOpponent-platforms
   initialize_from: null
   load_model: false
   resume: false

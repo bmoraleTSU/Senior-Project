@@ -1,0 +1,29 @@
+{
+    "AI-Opponent": {
+        "checkpoints": [
+            {
+                "steps": 150056,
+                "file_path": "results/AIOpponent-platforms/AI-Opponent/AI-Opponent-150056.onnx",
+                "reward": null,
+                "creation_time": 1690090614.5212438,
+                "auxillary_file_paths": [
+                    "results/AIOpponent-platforms/AI-Opponent/AI-Opponent-150056.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 150056,
+            "file_path": "results/AIOpponent-platforms/AI-Opponent.onnx",
+            "reward": null,
+            "creation_time": 1690090614.5212438,
+            "auxillary_file_paths": [
+                "results/AIOpponent-platforms/AI-Opponent/AI-Opponent-150056.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "2.0.1"
+    }
+}

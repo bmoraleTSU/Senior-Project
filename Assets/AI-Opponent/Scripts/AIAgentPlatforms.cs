@@ -5,7 +5,7 @@ using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
 using Unity.MLAgents.Actuators;
 
-public class AIAgent : Agent {
+public class AIAgentPlatforms : Agent {
     // Init to eventually hold reference to 3D object's ri
     Rigidbody rBody;
     // Init array of GameObjects to hold platforms
@@ -14,6 +14,11 @@ public class AIAgent : Agent {
     // Init colliding bools
     bool isCurrentlyColliding = false;
     bool lastPlatformTouched = false;
+    // Adjust this scale to control the influence of dense rewards
+    float denseRewardScale = 0.1f;
+    float lastDenseReward = 0f;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,6 +62,7 @@ public class AIAgent : Agent {
             // Check if last platform
             if (collision.gameObject.name == platforms[0].name)
             {
+                Debug.Log("Last platform touched!");
                 lastPlatformTouched = true;
             }
         }
@@ -72,6 +78,12 @@ public class AIAgent : Agent {
     // Extend episode start function
     public override void OnEpisodeBegin()
     {
+        // Reset the platformsTouched dictionary to indicate that no platform has been traversed
+        foreach (GameObject platform in platforms)
+        {
+            platformsTouched[platform.name] = false;
+        }
+
         // If the Agent fell, zero its momentum
         if (this.transform.localPosition.y < 0)
         {
@@ -81,15 +93,17 @@ public class AIAgent : Agent {
             this.transform.localPosition = new Vector3(-51.48f, 12.327f, 0.16f);
         }
 
+        // Move the ball to a new random spot on one of the platforms TRAINING PURPOSES
+        //GameObject randomPlatform = platforms[Random.Range(0, platforms.Length)];
+        //this.transform.localPosition = randomPlatform.transform.position + Vector3.up * 0.5f;
+
+        // Reset the dense reward at the beginning of each episode
+        lastDenseReward = 0f;
+
         // Move the target to a new spot
         /*Target.localPosition = new Vector3(Random.value * 8 - 4,
                                            0.5f,
                                            Random.value * 8 - 4);*/
-        // Reset the platformsTouched dictionary to indicate that no platform has been traversed
-        foreach (GameObject platform in platforms)
-        {
-            platformsTouched[platform.name] = false;
-        }
     }
 
     // Extend observation function
@@ -122,10 +136,24 @@ public class AIAgent : Agent {
         // Get distance to last platform
         //float distanceToTarget = Vector3.Distance(this.transform.localPosition, platforms[0].transform.localPosition);
 
+        // Punishment for staying on the same platform for too long
+        if (isCurrentlyColliding && this.rBody.velocity != Vector3.zero)
+        {
+            AddReward(0.001f); // Small reward for staying on a platform and moving
+            //isCurrentlyColliding = false; // Only allow one action loop to add reward
+        }
+        else
+        {
+            AddReward(-0.1f); // Small punishment for staying still or not on a platform
+        }
+
         // Close to bottom platform
         if (lastPlatformTouched)
         {
+            Debug.Log("Last platform ending episode.");
             SetReward(1.0f);
+            lastPlatformTouched = false;
+            // Stop ball's motion
             EndEpisode();
         }
         // Fell off platform
@@ -133,19 +161,18 @@ public class AIAgent : Agent {
         {
             // Adding punishment so we don't punish to heavily
             // on falling per step
-            AddReward(-0.4f); // Consider removing this penalty to avoid fear of jumping
+            SetReward(0.0f); // Consider removing this penalty to avoid fear of jumping
             EndEpisode();
         }
 
-        // Punishment for staying on the same platform for too long
-        if (isCurrentlyColliding && this.rBody.velocity != Vector3.zero)
-        {
-            AddReward(0.4f); // Small reward for staying on a platform and moving
-        }
-        else
-        {
-            AddReward(-0.1f); // Small punishment for staying still or not on a platform
-        }
+        // Dense Rewards based on proximity to the bottom platform
+        float distanceToBottomPlatform = Vector3.Distance(this.transform.localPosition, platforms[0].transform.localPosition);
+        float currentDenseReward = Mathf.Clamp(1f - distanceToBottomPlatform * denseRewardScale, 0f, 1f);
+        float denseReward = currentDenseReward - lastDenseReward;
+        lastDenseReward = currentDenseReward;
+        AddReward(denseReward);
+
+
     }
 
     // Allow keyboard control of capsule
