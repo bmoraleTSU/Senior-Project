@@ -2,22 +2,22 @@
     "AI-Opponent": {
         "checkpoints": [
             {
-                "steps": 150008,
-                "file_path": "results/AIOpponent-platforms-onetime-reward/AI-Opponent/AI-Opponent-150008.onnx",
-                "reward": -9.925861597061157,
-                "creation_time": 1690092452.526458,
+                "steps": 150010,
+                "file_path": "results/AIOpponent-platforms-onetime-reward/AI-Opponent/AI-Opponent-150010.onnx",
+                "reward": 799.0057249069214,
+                "creation_time": 1690139631.042521,
                 "auxillary_file_paths": [
-                    "results/AIOpponent-platforms-onetime-reward/AI-Opponent/AI-Opponent-150008.pt"
+                    "results/AIOpponent-platforms-onetime-reward/AI-Opponent/AI-Opponent-150010.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 150008,
+            "steps": 150010,
             "file_path": "results/AIOpponent-platforms-onetime-reward/AI-Opponent.onnx",
-            "reward": -9.925861597061157,
-            "creation_time": 1690092452.526458,
+            "reward": 799.0057249069214,
+            "creation_time": 1690139631.042521,
             "auxillary_file_paths": [
-                "results/AIOpponent-platforms-onetime-reward/AI-Opponent/AI-Opponent-150008.pt"
+                "results/AIOpponent-platforms-onetime-reward/AI-Opponent/AI-Opponent-150010.pt"
             ]
         }
     },

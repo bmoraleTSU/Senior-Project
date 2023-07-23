@@ -1,11 +1,11 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
 using Unity.MLAgents.Actuators;
 
-public class AIAgentPlatforms : Agent {
+public class AIAgentPlatformsSpiral : Agent {
     // Init to eventually hold reference to 3D object's ri
     Rigidbody rBody;
     // Init array of GameObjects to hold platforms
@@ -85,18 +85,18 @@ public class AIAgentPlatforms : Agent {
         }
 
         // If the Agent fell, zero its momentum
-        if (this.transform.localPosition.y < 0 || lastPlatformTouched)
+        if (this.transform.localPosition.y < 0)
         {
-            // Reset bool to check collision with last platform
-            lastPlatformTouched = false;
             this.rBody.angularVelocity = Vector3.zero;
             this.rBody.velocity = Vector3.zero;
             // Reset ball's position to top most platform
-            //this.transform.localPosition = new Vector3(-51.48f, 12.327f, 0.16f);
-            // Move the ball to a new random spot on one of the platforms TRAINING PURPOSES
-            GameObject randomPlatform = platforms[Random.Range(0, platforms.Length)];
-            this.transform.localPosition = randomPlatform.transform.position + Vector3.up * 0.5f;
-        }  
+            this.transform.localPosition = new Vector3(-53.301f, 12.346f, 13.04f);
+        }
+
+        // Move the ball to a new random spot on one of the platforms TRAINING PURPOSES
+        GameObject randomPlatform = platforms[Random.Range(0, platforms.Length)];
+        this.transform.localPosition = randomPlatform.transform.position + Vector3.up * 0.5f;
+
         // Reset the dense reward at the beginning of each episode
         lastDenseReward = 0f;
 
@@ -139,16 +139,8 @@ public class AIAgentPlatforms : Agent {
         // Punishment for staying on the same platform for too long
         if (isCurrentlyColliding && this.rBody.velocity != Vector3.zero)
         {
-            // Limit how many times the ball can be rewarded
-            if (GetCumulativeReward() > 1000.0f)
-            {
-                // Cause the ball to no longer attempt to add reward for being on a platform
-                isCurrentlyColliding = false; // Will cause a negative reward
-            }
-            else
-            {
-                AddReward(0.15f); // Small reward for staying on a platform and moving
-            }
+            AddReward(0.15f); // Small reward for staying on a platform and moving
+            //isCurrentlyColliding = false; // Only allow one action loop to add reward
         }
         else
         {
@@ -159,7 +151,8 @@ public class AIAgentPlatforms : Agent {
         if (lastPlatformTouched)
         {
             Debug.Log("Last platform ending episode.");
-            SetReward(1001.0f);
+            AddReward(1.0f);
+            lastPlatformTouched = false;
             // Stop ball's motion
             EndEpisode();
         }
