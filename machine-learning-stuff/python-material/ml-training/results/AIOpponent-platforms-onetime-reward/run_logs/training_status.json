@@ -9,13 +9,31 @@
                 "auxillary_file_paths": [
                     "results/AIOpponent-platforms-onetime-reward/AI-Opponent/AI-Opponent-150010.pt"
                 ]
+            },
+            {
+                "steps": 150010,
+                "file_path": "results/AIOpponent-platforms-onetime-reward/AI-Opponent/AI-Opponent-150010.onnx",
+                "reward": null,
+                "creation_time": 1690255463.9998841,
+                "auxillary_file_paths": [
+                    "results/AIOpponent-platforms-onetime-reward/AI-Opponent/AI-Opponent-150010.pt"
+                ]
+            },
+            {
+                "steps": 150010,
+                "file_path": "results/AIOpponent-platforms-onetime-reward/AI-Opponent/AI-Opponent-150010.onnx",
+                "reward": null,
+                "creation_time": 1690255498.719575,
+                "auxillary_file_paths": [
+                    "results/AIOpponent-platforms-onetime-reward/AI-Opponent/AI-Opponent-150010.pt"
+                ]
             }
         ],
         "final_checkpoint": {
             "steps": 150010,
             "file_path": "results/AIOpponent-platforms-onetime-reward/AI-Opponent.onnx",
-            "reward": 799.0057249069214,
-            "creation_time": 1690139631.042521,
+            "reward": null,
+            "creation_time": 1690255498.719575,
             "auxillary_file_paths": [
                 "results/AIOpponent-platforms-onetime-reward/AI-Opponent/AI-Opponent-150010.pt"
             ]

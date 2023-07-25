@@ -11,6 +11,7 @@ public class AIAgentPlatforms : Agent {
     // Init array of GameObjects to hold platforms
     GameObject[] platforms;
     Dictionary<string, bool> platformsTouched = new Dictionary<string, bool> {};
+    GameObject randomPlatform;
     // Init colliding bools
     bool isCurrentlyColliding = false;
     bool lastPlatformTouched = false;
@@ -94,16 +95,11 @@ public class AIAgentPlatforms : Agent {
             // Reset ball's position to top most platform
             //this.transform.localPosition = new Vector3(-51.48f, 12.327f, 0.16f);
             // Move the ball to a new random spot on one of the platforms TRAINING PURPOSES
-            GameObject randomPlatform = platforms[Random.Range(0, platforms.Length)];
-            this.transform.localPosition = randomPlatform.transform.position + Vector3.up * 0.5f;
+            randomPlatform = platforms[Random.Range(0, platforms.Length)];
+            this.transform.localPosition = randomPlatform.transform.localPosition + Vector3.up * 0.5f;
         }  
         // Reset the dense reward at the beginning of each episode
         lastDenseReward = 0f;
-
-        // Move the target to a new spot
-        /*Target.localPosition = new Vector3(Random.value * 8 - 4,
-                                           0.5f,
-                                           Random.value * 8 - 4);*/
     }
 
     // Extend observation function

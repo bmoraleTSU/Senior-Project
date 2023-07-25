@@ -4,13 +4,16 @@ using UnityEngine;
 using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
 using Unity.MLAgents.Actuators;
+using System.Linq;
 
-public class AIAgentPlatformsSpiral : Agent {
+public class AIAgentSpiralPlatforms : Agent
+{
     // Init to eventually hold reference to 3D object's ri
     Rigidbody rBody;
     // Init array of GameObjects to hold platforms
     GameObject[] platforms;
-    Dictionary<string, bool> platformsTouched = new Dictionary<string, bool> {};
+    Dictionary<string, bool> platformsTouched = new Dictionary<string, bool>();
+    GameObject randomPlatform;
     // Init colliding bools
     bool isCurrentlyColliding = false;
     bool lastPlatformTouched = false;
@@ -28,8 +31,10 @@ public class AIAgentPlatformsSpiral : Agent {
         platforms = GameObject.FindGameObjectsWithTag("platform");
         Debug.Log("The first platform found is " + platforms[0].name);
         // Get all platform game objects
-        foreach(GameObject platform in platforms) {
+        foreach (GameObject platform in platforms)
+        {
             Debug.Log("Platform found: " + platform.name);
+            Debug.Log("Platforms Position: " + platform.transform.localPosition);
             // Add platform entry into traversal tracking dictionary
             platformsTouched.Add(platform.name, false);
         }
@@ -85,32 +90,28 @@ public class AIAgentPlatformsSpiral : Agent {
         }
 
         // If the Agent fell, zero its momentum
-        if (this.transform.localPosition.y < 0)
+        if (this.transform.localPosition.y < 0 || lastPlatformTouched)
         {
+            // Reset bool to check collision with last platform
+            lastPlatformTouched = false;
             this.rBody.angularVelocity = Vector3.zero;
             this.rBody.velocity = Vector3.zero;
             // Reset ball's position to top most platform
-            this.transform.localPosition = new Vector3(-53.301f, 12.346f, 13.04f);
+            //this.transform.localPosition = new Vector3(-52.33f, 12.46f, -0.79f);
+            // Move the ball to a new random spot on one of the platforms TRAINING PURPOSES
+            // Choose a random platform index
+            randomPlatform = platforms[Random.Range(0, platforms.Length)];
+            this.transform.localPosition = randomPlatform.transform.localPosition + Vector3.up * 0.5f;
         }
-
-        // Move the ball to a new random spot on one of the platforms TRAINING PURPOSES
-        GameObject randomPlatform = platforms[Random.Range(0, platforms.Length)];
-        this.transform.localPosition = randomPlatform.transform.position + Vector3.up * 0.5f;
-
         // Reset the dense reward at the beginning of each episode
         lastDenseReward = 0f;
-
-        // Move the target to a new spot
-        /*Target.localPosition = new Vector3(Random.value * 8 - 4,
-                                           0.5f,
-                                           Random.value * 8 - 4);*/
     }
 
     // Extend observation function
     public override void CollectObservations(VectorSensor sensor)
     {
         // Platform and Agent positions
-        foreach(GameObject platform in platforms)
+        foreach (GameObject platform in platforms)
         {
             sensor.AddObservation(platform.transform.localPosition);
         }
@@ -139,8 +140,16 @@ public class AIAgentPlatformsSpiral : Agent {
         // Punishment for staying on the same platform for too long
         if (isCurrentlyColliding && this.rBody.velocity != Vector3.zero)
         {
-            AddReward(0.15f); // Small reward for staying on a platform and moving
-            //isCurrentlyColliding = false; // Only allow one action loop to add reward
+            // Limit how many times the ball can be rewarded
+            if (GetCumulativeReward() > 1000.0f)
+            {
+                // Cause the ball to no longer attempt to add reward for being on a platform
+                isCurrentlyColliding = false; // Will cause a negative reward
+            }
+            else
+            {
+                AddReward(0.2f); // Small reward for staying on a platform and moving
+            }
         }
         else
         {
@@ -151,8 +160,15 @@ public class AIAgentPlatformsSpiral : Agent {
         if (lastPlatformTouched)
         {
             Debug.Log("Last platform ending episode.");
-            AddReward(1.0f);
-            lastPlatformTouched = false;
+            int platformsVisited = platformsTouched.Count(kvp => kvp.Value == true);
+            if (platformsVisited > 1)
+            {
+                SetReward(1001.0f);
+            }
+            else
+            {
+                SetReward(500.0f);
+            }
             // Stop ball's motion
             EndEpisode();
         }

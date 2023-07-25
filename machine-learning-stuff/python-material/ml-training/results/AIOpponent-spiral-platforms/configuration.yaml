@@ -63,11 +63,11 @@ engine_settings:
   no_graphics: false
 environment_parameters: null
 checkpoint_settings:
-  run_id: AIOpponent-platforms-onetime-reward
+  run_id: AIOpponent-spiral-platforms
   initialize_from: null
   load_model: false
-  resume: true
-  force: false
+  resume: false
+  force: true
   train_model: false
   inference: false
   results_dir: results
