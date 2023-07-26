@@ -2,22 +2,22 @@
     "AI-Opponent": {
         "checkpoints": [
             {
-                "steps": 150010,
-                "file_path": "results/AIOpponent-spiral-platforms/AI-Opponent/AI-Opponent-150010.onnx",
-                "reward": 827.4988910357157,
-                "creation_time": 1690258330.320695,
+                "steps": 250010,
+                "file_path": "results/AIOpponent-spiral-platforms/AI-Opponent/AI-Opponent-250010.onnx",
+                "reward": 992.6875,
+                "creation_time": 1690335096.805436,
                 "auxillary_file_paths": [
-                    "results/AIOpponent-spiral-platforms/AI-Opponent/AI-Opponent-150010.pt"
+                    "results/AIOpponent-spiral-platforms/AI-Opponent/AI-Opponent-250010.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 150010,
+            "steps": 250010,
             "file_path": "results/AIOpponent-spiral-platforms/AI-Opponent.onnx",
-            "reward": 827.4988910357157,
-            "creation_time": 1690258330.320695,
+            "reward": 992.6875,
+            "creation_time": 1690335096.805436,
             "auxillary_file_paths": [
-                "results/AIOpponent-spiral-platforms/AI-Opponent/AI-Opponent-150010.pt"
+                "results/AIOpponent-spiral-platforms/AI-Opponent/AI-Opponent-250010.pt"
             ]
         }
     },

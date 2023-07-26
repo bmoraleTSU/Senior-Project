@@ -12,6 +12,7 @@ public class AIAgentSpiralPlatforms : Agent
     Rigidbody rBody;
     // Init array of GameObjects to hold platforms
     GameObject[] platforms;
+    int platformsLength;
     Dictionary<string, bool> platformsTouched = new Dictionary<string, bool>();
     GameObject randomPlatform;
     // Init colliding bools
@@ -97,11 +98,12 @@ public class AIAgentSpiralPlatforms : Agent
             this.rBody.angularVelocity = Vector3.zero;
             this.rBody.velocity = Vector3.zero;
             // Reset ball's position to top most platform
-            //this.transform.localPosition = new Vector3(-52.33f, 12.46f, -0.79f);
+            platformsLength = platforms.Length;
+            this.transform.localPosition = platforms[platformsLength-1].transform.localPosition + Vector3.up * 0.5f;
             // Move the ball to a new random spot on one of the platforms TRAINING PURPOSES
             // Choose a random platform index
-            randomPlatform = platforms[Random.Range(0, platforms.Length)];
-            this.transform.localPosition = randomPlatform.transform.localPosition + Vector3.up * 0.5f;
+            //randomPlatform = platforms[Random.Range(0, platforms.Length)];
+            //this.transform.localPosition = randomPlatform.transform.localPosition + Vector3.up * 0.5f;
         }
         // Reset the dense reward at the beginning of each episode
         lastDenseReward = 0f;
@@ -148,7 +150,7 @@ public class AIAgentSpiralPlatforms : Agent
             }
             else
             {
-                AddReward(0.2f); // Small reward for staying on a platform and moving
+                AddReward(0.12f); // Small reward for staying on a platform and moving
             }
         }
         else
@@ -177,7 +179,7 @@ public class AIAgentSpiralPlatforms : Agent
         {
             // Adding punishment so we don't punish to heavily
             // on falling per step
-            SetReward(0.0f); // Consider removing this penalty to avoid fear of jumping
+            //SetReward(0.0f); // Consider removing this penalty to avoid fear of jumping
             EndEpisode();
         }
 

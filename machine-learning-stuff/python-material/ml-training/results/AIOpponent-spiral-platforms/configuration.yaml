@@ -15,7 +15,7 @@ behaviors:
       beta_schedule: constant
       epsilon_schedule: linear
     network_settings:
-      normalize: false
+      normalize: true
       hidden_units: 128
       num_layers: 2
       vis_encode_type: simple
@@ -37,7 +37,7 @@ behaviors:
     init_path: null
     keep_checkpoints: 5
     checkpoint_interval: 500000
-    max_steps: 150000
+    max_steps: 250000
     time_horizon: 64
     summary_freq: 10000
     threaded: false
