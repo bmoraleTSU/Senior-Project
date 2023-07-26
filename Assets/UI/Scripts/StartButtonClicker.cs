@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -53,6 +54,11 @@ public class StartButtonClicker : MonoBehaviour
         {
             screenUIDocuments[i].GetComponent<UIDocument>().sortingOrder = initialSortOrders[i];
         }
+    }
+
+    private T FindAnyObjectByType<T>()
+    {
+        throw new NotImplementedException();
     }
 
     //Function for ClickEvent

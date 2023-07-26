@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UIElements;
 using Unity.VisualScripting;
+using System;
 
 public class DifficultyScreenButtonClicker : MonoBehaviour
 {
@@ -59,6 +60,11 @@ public class DifficultyScreenButtonClicker : MonoBehaviour
         mediumUIButton.RegisterCallback<ClickEvent>(evnt => OnMediumButtonClick(evnt, parentCanvas));
         hardUIButton.RegisterCallback<ClickEvent>(evnt => OnHardButtonClick(evnt, parentCanvas));
 
+    }
+
+    private T FindAnyObjectByType<T>()
+    {
+        throw new NotImplementedException();
     }
 
     //Function for easyClickEvent
